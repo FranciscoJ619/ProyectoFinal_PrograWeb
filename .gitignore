@@ -1,0 +1,24 @@
+# ---------- Node / Frontend ----------
+node_modules/
+frontend/dist/
+*.log
+npm-debug.log*
+.env
+.env.local
+.env.*.local
+
+# ---------- Backend ----------
+backend/target/
+backend/.mvn/wrapper/maven-wrapper.jar
+backend/uploads/
+# Variables sensibles: nunca subir la configuración real
+backend/src/main/resources/application.properties
+backend/src/main/resources/application-*.properties
+
+# ---------- Editores / SO ----------
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
