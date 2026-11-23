@@ -1,0 +1,46 @@
+meta {
+  name: Publicar videojuego
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/videojuegos
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "titulo": "Kirby and the Forgotten Land",
+    "plataformaId": 5,
+    "generoIds": [
+      4,
+      2
+    ],
+    "descripcion": "Cartucho original con caja, probado y funcionando.",
+    "anioLanzamiento": 2022,
+    "estadoFisico": "COMO_NUEVO",
+    "modalidad": "AMBAS",
+    "precioVenta": 700,
+    "diasMaxPrestamo": 7,
+    "condicionesPrestamo": "Entrega en Metro Coyoacán.",
+    "disponibleDesde": "2027-01-01",
+    "ubicacion": "Coyoacán, CDMX",
+    "imagenes": [],
+    "borrador": false
+  }
+}
+
+script:post-response {
+  if (res.status === 201) bru.setVar("videojuegoId", res.body.id);
+}
+
+tests {
+  test("status 201", function() { expect(res.status).to.equal(201); });
+}
+

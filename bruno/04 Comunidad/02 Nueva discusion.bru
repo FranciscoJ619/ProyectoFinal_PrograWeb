@@ -1,0 +1,29 @@
+meta {
+  name: Nueva discusion
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/foro/publicaciones
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "categoria": "DISCUSION",
+    "titulo": "¿Cuál es su juego favorito de 2024?",
+    "contenido": "Quiero recomendaciones de juegos físicos para este año.",
+    "etiqueta": "Recomendaciones"
+  }
+}
+
+tests {
+  test("status 201", function() { expect(res.status).to.equal(201); });
+}
+

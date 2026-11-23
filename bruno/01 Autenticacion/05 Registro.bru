@@ -1,0 +1,30 @@
+meta {
+  name: Registro
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/auth/registro
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nombre": "Jugador Bruno",
+    "email": "{{emailRegistro}}",
+    "password": "Bruno123!",
+    "telefono": "+525511112222",
+    "ciudad": "CDMX"
+  }
+}
+
+script:pre-request {
+  bru.setVar("emailRegistro", "bruno." + Date.now() + "@correo.mx");
+}
+
+tests {
+  test("status 201", function() { expect(res.status).to.equal(201); });
+}
+

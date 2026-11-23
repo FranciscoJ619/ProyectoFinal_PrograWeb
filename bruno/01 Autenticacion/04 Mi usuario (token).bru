@@ -1,0 +1,21 @@
+meta {
+  name: Mi usuario (token)
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/usuarios/me
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+tests {
+  test("status 200", function() { expect(res.status).to.equal(200); });
+  test("es Ana", function() { expect(res.body.email).to.equal("ana.torres@correo.mx"); });
+}
+

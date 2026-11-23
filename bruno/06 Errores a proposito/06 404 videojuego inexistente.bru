@@ -1,0 +1,20 @@
+meta {
+  name: 404 videojuego inexistente
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/videojuegos/99999
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+tests {
+  test("status 404", function() { expect(res.status).to.equal(404); });
+}
+

@@ -1,0 +1,20 @@
+meta {
+  name: Moderar videojuego (moderador)
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/admin/videojuegos?estado=PUBLICADO
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenModerador}}
+}
+
+tests {
+  test("status 200", function() { expect(res.status).to.equal(200); });
+}
+

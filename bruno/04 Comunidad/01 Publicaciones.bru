@@ -1,0 +1,20 @@
+meta {
+  name: Publicaciones
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/foro/publicaciones?categoria=RESENA_VIDEOJUEGO&page=0&size=5
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+tests {
+  test("status 200", function() { expect(res.status).to.equal(200); });
+}
+

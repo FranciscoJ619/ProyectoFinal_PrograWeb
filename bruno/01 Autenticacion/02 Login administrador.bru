@@ -1,0 +1,28 @@
+meta {
+  name: Login administrador
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/auth/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "admin@replayclub.mx",
+    "password": "Admin123!"
+  }
+}
+
+script:post-response {
+  bru.setVar("tokenAdmin", res.body.token);
+}
+
+tests {
+  test("status 200", function() { expect(res.status).to.equal(200); });
+  test("rol ADMIN", function() { expect(res.body.usuario.rol).to.equal("ADMIN"); });
+}
+

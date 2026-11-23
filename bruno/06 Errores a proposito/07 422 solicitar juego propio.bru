@@ -1,0 +1,32 @@
+meta {
+  name: 422 solicitar juego propio
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/solicitudes
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "videojuegoId": 12,
+    "tipo": "PRESTAMO",
+    "fechaInicio": "2027-01-10",
+    "fechaDevolucion": "2027-01-12"
+  }
+}
+
+tests {
+  test("status 422", function() { expect(res.status).to.equal(422); });
+}
+
+docs {
+  Ana intenta pedir prestado su propio juego (Hades).
+}

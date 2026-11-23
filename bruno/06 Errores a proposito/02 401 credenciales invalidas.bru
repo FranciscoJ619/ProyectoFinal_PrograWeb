@@ -1,0 +1,23 @@
+meta {
+  name: 401 credenciales invalidas
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/auth/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "email": "ana.torres@correo.mx",
+    "password": "Incorrecta1!"
+  }
+}
+
+tests {
+  test("status 401", function() { expect(res.status).to.equal(401); });
+}
+

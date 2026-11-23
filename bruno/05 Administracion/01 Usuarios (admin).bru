@@ -1,0 +1,20 @@
+meta {
+  name: Usuarios (admin)
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/admin/usuarios?rol=JUGADOR&page=0&size=10
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenAdmin}}
+}
+
+tests {
+  test("status 200", function() { expect(res.status).to.equal(200); });
+}
+

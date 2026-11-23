@@ -1,0 +1,30 @@
+meta {
+  name: Solicitar prestamo
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/solicitudes
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "videojuegoId": 15,
+    "tipo": "PRESTAMO",
+    "fechaInicio": "2027-01-10",
+    "fechaDevolucion": "2027-01-15",
+    "mensaje": "Hola, ¿me lo prestas?"
+  }
+}
+
+tests {
+  test("201 creada, o 422 si ya existe una solicitud activa (segunda ejecución)", function() { expect([201, 422]).to.include(res.status); });
+}
+

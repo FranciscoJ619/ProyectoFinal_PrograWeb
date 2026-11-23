@@ -1,0 +1,26 @@
+meta {
+  name: 403 moderador publica
+  type: http
+  seq: 4
+}
+
+post {
+  url: {{baseUrl}}/videojuegos
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{tokenModerador}}
+}
+
+body:json {
+  {
+    "titulo": "x"
+  }
+}
+
+tests {
+  test("status 403", function() { expect(res.status).to.equal(403); });
+}
+

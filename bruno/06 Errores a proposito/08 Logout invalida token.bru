@@ -1,0 +1,23 @@
+meta {
+  name: Logout invalida token
+  type: http
+  seq: 8
+}
+
+post {
+  url: {{baseUrl}}/auth/logout
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+tests {
+  test("status 200", function() { expect(res.status).to.equal(200); });
+}
+
+docs {
+  Después de esto, el token de Ana queda revocado: vuelve a ejecutar "Mi usuario (token)" y obtendrás 401.
+}

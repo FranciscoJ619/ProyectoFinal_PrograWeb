@@ -1,0 +1,20 @@
+meta {
+  name: Catalogo con filtros
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/videojuegos?plataformaIds=5&modalidad=PRESTAMO&orden=populares&page=0&size=8
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzM4NCJ9.eyJqdGkiOiI1OGVmZjJmNi01YzY1LTQ0ZWQtYWMzMy1lNGQ0MDNiOWE0NDUiLCJzdWIiOiJhZG1pbkByZXBsYXljbHViLm14IiwidWlkIjoxLCJyb2wiOiJBRE1JTiIsIm5vbWJyZSI6IkFkbWluaXN0cmFkb3IgUmVwbGF5IiwiaWF0IjoxNzk1NDExOTk0LCJleHAiOjE3OTU0NDA3OTR9.MqudWps7sq5SFJ7dAib4ykVGfWnMN124HsvVaKKyXBYt0YYJ8fXQ5VzwiRFySPGh
+}
+
+tests {
+  test("status 200", function() { expect(res.status).to.equal(200); });
+  test("paginado en servidor", function() { expect(res.body).to.have.property("totalPages"); expect(res.body.content.length).to.be.at.most(8); });
+}

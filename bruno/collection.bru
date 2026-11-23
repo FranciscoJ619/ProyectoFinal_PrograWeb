@@ -1,0 +1,16 @@
+meta {
+  name: Replay Club API
+}
+
+vars:pre-request {
+  baseUrl: http://localhost:8010/api
+}
+
+docs {
+  Colección de pruebas de la API de Replay Club.
+
+  - baseUrl tiene un valor por defecto aquí (backend local en el puerto 8010), así que la colección
+    funciona aunque no selecciones un entorno. Para probar el VPS selecciona el entorno "Produccion".
+  - Ejecuta primero la carpeta "01 Autenticacion": los logins guardan token, tokenAdmin y tokenModerador
+    como variables de ejecución (bru.setVar) que usan las demás peticiones.
+}

@@ -1,0 +1,26 @@
+meta {
+  name: 400 registro invalido
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/auth/registro
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "nombre": "Al",
+    "email": "no-es-correo",
+    "password": "abc",
+    "telefono": "55"
+  }
+}
+
+tests {
+  test("status 400", function() { expect(res.status).to.equal(400); });
+  test("errores por campo", function() { expect(res.body.errores).to.have.property("password"); expect(res.body.errores).to.have.property("email"); });
+}
+
