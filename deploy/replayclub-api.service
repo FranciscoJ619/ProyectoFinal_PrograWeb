@@ -1,0 +1,18 @@
+# /etc/systemd/system/replayclub-api.service
+# sudo systemctl daemon-reload && sudo systemctl enable --now replayclub-api
+[Unit]
+Description=Replay Club API (Spring Boot)
+After=network.target mysql.service
+Requires=mysql.service
+
+[Service]
+User=replayclub
+WorkingDirectory=/opt/replayclub
+# application.properties real vive en /opt/replayclub/application.properties (nunca en GitHub)
+ExecStart=/usr/bin/java -Xms256m -Xmx512m -jar /opt/replayclub/replay-club-api.jar --spring.config.location=file:/opt/replayclub/application.properties
+SuccessExitStatus=143
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
