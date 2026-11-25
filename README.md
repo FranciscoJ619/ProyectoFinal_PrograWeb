@@ -17,11 +17,10 @@ conecta a quien tiene un juego sin usar con quien quiere jugarlo, con un flujo d
 
 | Recurso | Enlace |
 |---|---|
-| Aplicación desplegada (HTTPS) | `https://TU-DOMINIO` ← *actualizar* |
-| URL base de la API | `https://TU-DOMINIO/api` ← *actualizar* |
-| Prototipo navegable en Figma | `PEGAR_LINK_DE_FIGMA` ← *actualizar* |
-| Tablero de GitHub Projects (público) | `PEGAR_LINK_DE_GITHUB_PROJECTS` ← *actualizar* |
-| Repositorio | https://github.com/FranciscoJ619/t3_act8_eq11 |
+| Aplicación desplegada (HTTPS) | `https://replayclub.tech` |
+| URL base de la API | `https://replayclub.tech/api` |
+| Prototipo navegable en Figma | https://www.figma.com/proto/hfDEJ03SlIxGmmNm21wm2d/Sin-t%C3%ADtulo--copia-?node-id=9-33094&p=f&t=5r3HO4a0HHlGRFaE-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=9%3A33094|
+| Repositorio | https://github.com/FranciscoJ619/ProyectoFinal_PrograWeb.git |
 
 ---
 
@@ -248,8 +247,6 @@ cp src/main/resources/application.properties.example src/main/resources/applicat
 # Edita application.properties: usuario/contraseña de MySQL y app.jwt.secret (openssl rand -base64 48)
 ./mvnw spring-boot:run          # Windows: mvnw.cmd spring-boot:run
 ```
-La API queda en `http://localhost:8010/api`. Con `app.mail.enabled=false` y `app.twilio.enabled=false` los correos/SMS/WhatsApp
-se escriben en el log en lugar de enviarse (útil para desarrollo).
 
 ### 3. Frontend
 ```bash
