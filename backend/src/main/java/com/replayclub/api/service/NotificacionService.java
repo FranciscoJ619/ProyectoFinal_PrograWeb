@@ -117,8 +117,8 @@ public class NotificacionService {
         crear(sol, texto, "/prestamos");
         email.enviar(sol.getEmail(), "Solicitud aprobada - " + juego, "¡Tu solicitud fue aprobada!",
                 texto + " Coordina la entrega en " + s.getVideojuego().getUbicacion() + ".", "Ver préstamo", "/prestamos");
-        twilio.enviarSms(sol.getTelefono(), "Replay Club: " + texto + " Punto de entrega: "
-                + s.getVideojuego().getUbicacion());
+        twilio.enviarSms(sol.getTelefono(),"Replay Club: " + texto + " Punto de entrega: "+ s.getVideojuego().getUbicacion(),
+        "sms_order_confirmation");
     }
 
     public void solicitudRechazada(Solicitud s) {
@@ -142,7 +142,7 @@ public class NotificacionService {
         crear(sol, texto, "/prestamos");
         email.enviar(sol.getEmail(), "Préstamo en curso - " + s.getVideojuego().getTitulo(), "¡A jugar!",
                 texto + " Coordina la devolución con " + s.getPropietario().getNombre() + ".", "Ver préstamo", "/prestamos");
-        twilio.enviarSms(sol.getTelefono(), "Replay Club: " + texto);
+        twilio.enviarSms(sol.getTelefono(),"Replay Club: " + texto,"sms_delivery_updates");
     }
 
     public void transaccionFinalizada(Solicitud s) {
