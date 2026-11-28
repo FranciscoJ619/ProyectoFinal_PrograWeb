@@ -21,6 +21,7 @@ conecta a quien tiene un juego sin usar con quien quiere jugarlo, con un flujo d
 | URL base de la API | `https://replayclub.tech/api` |
 | Prototipo navegable en Figma | https://www.figma.com/proto/hfDEJ03SlIxGmmNm21wm2d/Sin-t%C3%ADtulo--copia-?node-id=9-33094&p=f&t=5r3HO4a0HHlGRFaE-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=9%3A33094|
 | Repositorio | https://github.com/FranciscoJ619/ProyectoFinal_PrograWeb.git |
+| GitHub Project | https://github.com/users/Fredy3121/projects/2 |
 
 ---
 
